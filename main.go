@@ -3,7 +3,7 @@ package main
 import (
     "fmt"
     "github.com/gin-gonic/gin"
-    	"net/http"
+    "net/http"
 )
 
 func main(){
@@ -14,5 +14,11 @@ func main(){
 			"message": "pong",
 		})
 	})
+    r.GET("/hello", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+            "message": "world",
+		})
+	})
+
 	r.Run()
 }
